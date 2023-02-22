@@ -18,65 +18,100 @@ def get_edges(graph, norm):
         edges.append((norm[k], norm[v]))
     return edges
 
-def get_vertex_coloring_model(k, graph):
-    s = Solver()
+def get_vertex_coloring_model(graph):
+    s = Optimize()
 
+    count = Int("count")
     norm = normalize(graph)
     edges = get_edges(graph, norm)
 
     cv = []
     for v in norm.keys():
         var = Int(v)
-        s.add(And(0 <= var, var <= k - 1))
+        s.add(And(1 <= var, var <= count))
         cv.append(var)
 
     for u, v in edges:
         s.add(cv[u] != cv[v])
+
+    s.minimize(count)
     return s
 
 def get_stable_set_model(k, graph):
     s = Solver()
 
+def get_stable_set_model(graph):
+    s = Optimize()
+
+    count = Int("count")
+
     norm = normalize(graph)
     edges = get_edges(graph, norm)
 
     cv = [Bool(v) for v in norm.keys()]
-    s.add(Sum([If(v, 1, 0) for v in cv]) >= k)
+    s.add(Sum([If(v, 1, 0) for v in cv]) == count)
 
     for u, v in edges:
         s.add(Or(cv[u] == False, cv[v] == False))
 
+    s.maximize(count)
     return s
 
+def get_matching_model(graph):
+    s = Optimize()
+
+    cnt = Int("count")
+
+    norm = normalize(graph)
+    edges = get_edges(graph, norm)
+
+    cv = BoolVector("cv", len(edges))
+    s.add(Sum([If(v, 1, 0) for v in cv]) == cnt)
+
+    for i, p1 in enumerate(edges):
+        for j, p2 in enumerate(edges):
+            if i < j and (p1[0] == p2[0] or p1[0] == p2[1] or p1[1] == p2[0] or p1[1] == p2[1]):
+                s.add(Or(cv[i] == False, cv[j] == False))
+    s.maximize(cnt)
+    return s
 
 def test_vertex_coloring():
     graph = load_graph("export.csv")
-    for k in range(4, 1, -1):
-        s = get_vertex_coloring_model(k, graph)
-        if s.check() == sat:
-            model = s.model()
-            print(f"success: {k = }")
-            print({v.name(): model[v] for v in model})
-        else:
+    s = get_vertex_coloring_model(graph)
+    if s.check() == sat:
+        model = s.model()
+        print({v.name(): model[v] for v in model})
+    else:
+        print("unsat")
+
             print(f"fail: {k = } :(")
             break
 
 def test_stable_set():
     graph = load_graph("export.csv")
-    for k in range(1, 1000):
-        s = get_stable_set_model(k, graph)
-        if s.check() == sat:
-            model = s.model()
-            print(f"success: {k = }")
-            print({v.name(): model[v] for v in model})
-        else:
-            print(f"fail: {k = } :(")
-            break
+    s = get_stable_set_model(graph)
 
+    if s.check() == sat:
+        model = s.model()
+        print({v.name(): model[v] for v in model})
+    else:
+        print(f"unsat")
+
+def test_matching():
+    graph = load_graph("export.csv")
+    latest = None
+    s = get_matching_model(graph)
+    if s.check() == sat:
+        model = s.model()
+        print({v.name(): model[v] for v in model})
+    else:
+        print("unsat")
 
 
 def main():
-    test_stable_set()
+    test_vertex_coloring()
+    # test_stable_set()
+    # test_matching()
 
 if __name__ == "__main__":
     main()
