@@ -75,19 +75,22 @@ def main():
         borders[b] = borders[a]
 
     for country in countries:
-        # print(country, country == "Ireland")
         if country in borders:
             for b in borders[country]:
                 if b in countries:
                     edges.append((b, country))
 
     visited = []
-    with open("export.csv", "w") as f:
+    with open("edges.csv", "w") as f:
         for u, v in edges:
             if (v, u) in visited:
                 continue
             visited.append((u, v))
             f.write(f"{u}\t{v}\n")
+
+    with open("vertices.txt", "w") as f:
+        for c in countries:
+            f.write(f"{c}\n")
 
 
 
