@@ -1,5 +1,7 @@
 from z3 import *
 
+import itertools
+
 def load_graph(filename):
     with open(filename, "r") as f:
         return [x.strip().split('\t') for x in f.readlines() if x]
@@ -37,8 +39,21 @@ def get_vertex_coloring_model(graph):
     s.minimize(count)
     return s
 
-def get_stable_set_model(k, graph):
-    s = Solver()
+def get_edge_coloring_model(graph):
+    s = Optimize()
+
+    count = Int("count")
+    norm = normalize(graph)
+    edges = get_edges(graph, norm)
+    cv = IntVector("vec", len(edges))
+    for x in cv:
+        s.add(And(1 <= x, x <= count))
+    for i in range(len(edges)):
+        for j in range(i + 1, len(edges)):
+            if any(map(lambda x: x[0] == x[1], itertools.product(edges[i], edges[j]))):
+                s.add(cv[i] != cv[j])
+    s.minimize(count)
+    return s
 
 def get_stable_set_model(graph):
     s = Optimize()
@@ -84,8 +99,14 @@ def test_vertex_coloring():
     else:
         print("unsat")
 
-            print(f"fail: {k = } :(")
-            break
+def test_edge_coloring():
+    graph = load_graph("export.csv")
+    s = get_edge_coloring_model(graph)
+    if s.check() == sat:
+        model = s.model()
+        print({v.name(): model[v] for v in model})
+    else:
+        print("unsat")
 
 def test_stable_set():
     graph = load_graph("export.csv")
@@ -110,6 +131,7 @@ def test_matching():
 
 def main():
     test_vertex_coloring()
+    # test_edge_coloring()
     # test_stable_set()
     # test_matching()
 
