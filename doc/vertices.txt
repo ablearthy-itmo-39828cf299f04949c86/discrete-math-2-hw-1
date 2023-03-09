@@ -1,0 +1,49 @@
+Armenia ARM 40°10′53″N 44°30′52″E
+Albania ALB 41°19′44″N 19°49′04″E
+Andorra AND 42°30′N 01°30′E
+Austria AUT 48°12′N 16°22′E
+Belarus BLR 53°54′N 27°34′E
+Belgium BEL 50°50′48″N 04°21′09″E
+Bosnia and Herzegovina  BIH 43°51′23″N 18°24′47″E
+Bulgaria    BGR 42°42′N 23°20′E
+Croatia HRV 45°49′N 15°59′E
+Cyprus  CYP 35°10′21″N 33°21′54″E
+Czech Republic  CZE 50°05′15″N 14°25′17″E
+Denmark DNK 55°40′34″N 12°34′06″E
+Estonia EST 59°26′14″N 24°44′43″E
+Finland FIN 60°10′15″N 24°56′15″E
+France  FRA 48°51′24″N 2°21′8″E
+Germany DEU 52°31′12″N 13°24′18″E
+Georgia GEO 41°43′21″N 44°47′33″E
+Greece  GRC 37°59′03″N 23°43′41″E
+Hungary HUN 47°29′33″N 19°03′05″E
+Iceland ISL 64°08′48″N 21°56′24″W
+Ireland IRL 53°21′00″N 06°15′37″W
+Italy   ITA 41°53′36″N 12°28′58″E
+Kosovo  ROK 42°39′48″N 21°9′44″E
+Latvia  LVA 56°56′56″N 24°6′23″E
+Liechtenstein   LIE 47°8′N 9°31′E
+Lithuania   LTU 54°41′14″N 25°16′48″E
+Luxembourg  LUX 49°36′42″N 6°7′55″E
+Malta   MLT 35°53′54″N 14°30′45″E
+Moldova MDA 47°01′22″N 28°50′07″E
+Monaco  MCO 43°43′52″N 07°25′12″E
+Montenegro  MNE 42°26′28″N 19°15′46″E
+Netherlands NLD 52°22′22″N 04°53′37″E
+North Macedonia MKD 41°59′46″N 21°25′54″E
+Norway  NOR 59°54′48″N 10°44′20″E
+Poland  POL 52°13′48″N 21°00′40″E
+Portugal    PRT 38°43′31″N 09°09′00″W
+Romania ROU 44°25′57″N 26°6′14″E
+Russia  RUS 55°45′21″N 37°37′2″E
+San Marino  SMR 43°56′4.56″N 12°26′50.28″E
+Serbia  SRB 44°49′04″N 20°27′25″E
+Slovakia    SVK 48°08′38″N 17°06′35″E
+Slovenia    SVN 46°03′05″N 14°30′22″E
+Spain   ESP 40°25′01″N 03°42′12″W
+Sweden  SWE 59°19′46″N 18°4′7″E
+Switzerland CHE 46°56′53″N 7°26′51″E
+Turkey  TUR 39°55′48″N 32°51′00″E
+Ukraine UKR 50°27′00″N 30°31′24″E
+United Kingdom  GBR 51°30′26″N 0°7′39″W
+Vatican City    VAT 41°54′09″N 12°27′09″E

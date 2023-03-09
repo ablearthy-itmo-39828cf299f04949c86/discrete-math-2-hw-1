@@ -1,0 +1,24 @@
+\ProvidesPackage{mypreamble}
+
+\usepackage[
+  left=3cm,
+  right=1cm,
+  top=2cm,
+  bottom=2cm
+]{geometry}
+
+\usepackage{xltxtra}
+
+\usepackage{tikz}
+
+\usepackage{mathtools}
+
+\usepackage[colorlinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\usepackage{enumitem}
+
+\newcounter{problemctr}
+\newcommand{\problem}{\refstepcounter{problemctr} \paragraph{Problem \# \theproblemctr.}}
+
+\DeclarePairedDelimiter{\Pair}\langle\rangle

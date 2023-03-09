@@ -1,0 +1,37 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{mypreamble}
+\usepackage{standalone}
+
+\usepackage{pdflscape}
+
+\title{Discrete Math II, HW I}
+\date{March, 2023}
+\author{Aminev Timur, M3104}
+
+
+\newcommand\EGraph{\mathcal{G}^{*}}
+\newcommand\EGraphL{\mathcal{G}}
+
+\begin{document}
+\maketitle
+
+\problem The graph of Europe \(\EGraph = \Pair{V, E}\). Let \(\EGraphL\) be the
+largest connected component of \(\EGraph\)
+
+\begin{enumerate}[label=\alph*)]
+\item \cref{fig:map_basic} represents \(\EGraph\) with \textbf{no} intersecting
+      edges
+\end{enumerate}
+
+
+
+\begin{landscape}
+\begin{figure}
+\centering
+\includestandalone[mode=image,width=0.95\linewidth]{maps/basic}
+\caption{Basic map}\label{fig:map_basic}
+\end{figure}
+\end{landscape}
+
+\end{document}
