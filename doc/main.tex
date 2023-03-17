@@ -20,8 +20,52 @@
 largest connected component of \(\EGraph\)
 
 \begin{enumerate}[label=\alph*)]
-\item \cref{fig:map_basic} represents \(\EGraph\) with \textbf{no} intersecting
-      edges
+\item \Cref{fig:map_basic} represents \(\EGraph\) with \textbf{no} intersecting
+edges
+\item \(|V| = 49\), \(|E| = 92\)
+
+In order to count degree of each node, we should go through all edges, and
+increment degree of a vertex if the edge contains the vertex. %TODO: link to code
+\begin{align*}
+\delta(\EGraphL) &= 1 \\
+\Delta(\EGraphL) &= 9
+\end{align*}
+
+Radius, diameter and center can be obtained by calculating eccentricity for
+each vertex (using BFS)
+
+\begin{align*}
+\rad(\EGraphL) &= 5 \\
+\diam(\EGraphL) &= 8 \\
+\mycenter(\EGraphL) &= \{\texttt{RUS}, \texttt{BLR}, \texttt{LTU}, \texttt{POL}, \texttt{UKR}, \texttt{CZE}, \texttt{DEU}, \texttt{SVK}, \texttt{HUN}, \texttt{HRV}, \texttt{AUT}, \texttt{CHE}, \texttt{SVN}\}
+\end{align*}
+
+\texttt{Girth} equals 3 --- \(\{\texttt{CHE}, \texttt{AUT}, \texttt{LIE}\}\)
+
+Vertex and edges connectivity are obtained from the following observation:
+\texttt{DNK} is conneced only with \texttt{DEU}, therefore
+\[\varkappa(\EGraphL) = \lambda(\EGraphL) = 1\]
+
+\item \textbf{Minimum vertex coloring}. Due to \textit{four color theorem},
+there're at most 4 colors needed. Let's explore is it possible to use less
+colors? Let's try to use 3 colors. However, it's impossible to color countries
+\texttt{HRV}, \texttt{SRB}, \texttt{BIH}, \texttt{MNE}. They're all connected
+with each other, so three colors is not enough, therefore we have to use four
+colors. I used SMT solver (Z3) to find function \(V \to \mathbb{N}\). Here's
+\href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/753891b/auto/vertex_coloring.py}{the
+script}. See \cref{fig:vertex_coloring_map}
+
+\item \textbf{Minimum edge coloring}. I used SMT solver (Z3). %TODO: source code
+9 colors is enough. %TODO: add E -> N
+
+\item \textbf{Find the maximum clique}. I wrote the script to find maximum
+clique
+\href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/1c391015b3b3a8822ac5e7c6f949004ca919e267/auto/find_clique.py}{\texttt{find\_clique.py}}
+
+The maximum clique is of size 4.
+\(\texttt{HRV}, \texttt{SRB}, \texttt{BIH}, \texttt{MNE}\)
+
+
 \end{enumerate}
 
 
@@ -29,8 +73,16 @@ largest connected component of \(\EGraph\)
 \begin{landscape}
 \begin{figure}
 \centering
-\includestandalone[mode=image,width=0.95\linewidth]{maps/basic}
+\includestandalone[mode=build,width=0.95\linewidth]{maps/basic}
 \caption{Basic map}\label{fig:map_basic}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+\begin{figure}
+\centering
+\includestandalone[mode=build,width=0.95\linewidth]{maps/vertex_coloring}
+\caption{Vertex coloring}\label{fig:vertex_coloring_map}
 \end{figure}
 \end{landscape}
 
