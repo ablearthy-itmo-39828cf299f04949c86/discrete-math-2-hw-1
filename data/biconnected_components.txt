@@ -1,19 +1,23 @@
 ----------
-len(block) = 31
-cuts = ITA,RUS,FRA,DEU
-block = ARM,ALB,AUT,BLR,BIH,BGR,HRV,CZE,EST,FRA,DEU,GEO,GRC,HUN,ITA,ROK,LVA,LIE,LTU,MDA,MNE,MKD,POL,ROU,RUS,SRB,SVK,SVN,CHE,TUR,UKR
+len(block) = 2
+cuts = ESP
+block = ESP,PRT
 ----------
 len(block) = 3
 cuts = ESP,FRA
 block = AND,ESP,FRA
 ----------
-len(block) = 5
-cuts = FRA,DEU
-block = BEL,FRA,DEU,LUX,NLD
+len(block) = 2
+cuts = ITA
+block = ITA,SMR
 ----------
-len(block) = 1
-cuts = 
-block = CYP
+len(block) = 2
+cuts = ITA
+block = VAT,ITA
+----------
+len(block) = 2
+cuts = FRA
+block = MCO,FRA
 ----------
 len(block) = 2
 cuts = DEU
@@ -22,6 +26,14 @@ block = DNK,DEU
 len(block) = 4
 cuts = RUS
 block = RUS,NOR,SWE,FIN
+----------
+len(block) = 34
+cuts = ITA,RUS,FRA,DEU
+block = ARM,ALB,AUT,BLR,BEL,BIH,BGR,HRV,CZE,EST,FRA,DEU,GEO,GRC,HUN,ITA,ROK,LVA,LIE,LTU,LUX,MDA,MNE,NLD,MKD,POL,ROU,RUS,SRB,SVK,SVN,CHE,TUR,UKR
+----------
+len(block) = 1
+cuts = 
+block = CYP
 ----------
 len(block) = 1
 cuts = 
@@ -34,19 +46,3 @@ block = IRL,GBR
 len(block) = 1
 cuts = 
 block = MLT
-----------
-len(block) = 2
-cuts = FRA
-block = MCO,FRA
-----------
-len(block) = 2
-cuts = ESP
-block = ESP,PRT
-----------
-len(block) = 2
-cuts = ITA
-block = ITA,SMR
-----------
-len(block) = 2
-cuts = ITA
-block = VAT,ITA
