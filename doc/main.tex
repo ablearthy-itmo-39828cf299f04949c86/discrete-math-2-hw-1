@@ -3,6 +3,8 @@
 \usepackage{mypreamble}
 \usepackage{standalone}
 
+\usepackage{tikz}
+
 \usepackage{pdflscape}
 
 \title{Discrete Math II, HW I}
@@ -112,6 +114,65 @@ In fact, there's a closed walk of length 51. Therefore, \(|W| = 51\).
 Validness of the closed walk can be checked by \href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/2be1a5d/auto/validate_closed_walk.py}{the script}.
 Raw data can be obtained from \href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/fc8406d/data/vertex_closed_walk.txt}{here}.
 
+\item \textbf{Find the shortest closed walk \(U\) that visits every edge of
+\(\EGraphL\)}.
+%TODO
+
+\item \textbf{Find all biconnected components (blocks) and draw the block-cut tree of \(\EGraph\)}.
+To find cut-vertices and blocks we can use algorithm that uses DFS and stores
+information about time when a vertex was entered. While searching cut-vertices,
+the algorithm also remembers blocks.
+
+Since \(\EGraph\) has more than one connected component, the block-cut tree is
+actually \textit{block-cut forest}. Therefore, I'm going to draw the block-cut
+tree of \(\EGraphL\) (other components are not fascinating). The raw data can be
+found
+\href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/6363b0f/data/biconnected_components.txt}{here}.
+This was found by
+\href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/c81b421/auto/biconnected_components.py}{a script}.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[
+node distance={20mm},
+cutnode/.style={circle, draw=green!60,fill=green!5, very thick, scale=0.7},
+blocknode/.style={rectangle, draw=red!60, fill=red!5, very thick}
+]
+\node[blocknode] (1) {34};
+\node[cutnode] (RUS) [above of=1] {RUS};
+\node[blocknode] (2) [above of=RUS] {4};
+\node[cutnode] (ITA) [right of=1] {ITA};
+\node[blocknode] (3) [above right of=ITA] {2};
+\node[blocknode] (4) [below right of=ITA] {2};
+\node[cutnode] (DEU) [below of=1] {DEU};
+\node[blocknode] (5) [below of=DEU] {2};
+\node[cutnode] (FRA) [left of=1] {FRA};
+\node[blocknode] (6) [below of=FRA] {3};
+\node[cutnode] (ESP) [below of=6] {ESP};
+\node[blocknode] (7) [left of=ESP] {2};
+\node[blocknode] (8) [left of=FRA] {2};
+
+\draw (1) -- (RUS);
+\draw (RUS) -- (2);
+
+\draw (1) -- (ITA);
+\draw (3) -- (ITA);
+\draw (4) -- (ITA);
+
+\draw (1) -- (DEU);
+\draw (5) -- (DEU);
+
+\draw (1) -- (FRA);
+\draw (6) -- (FRA);
+\draw (8) -- (FRA);
+
+\draw (6) -- (ESP);
+\draw (7) -- (ESP);
+\end{tikzpicture}
+\caption{Block-cut tree}\label{fig:block-cut-tree}
+\end{figure}
+
+The block-cut tree is shown in \cref{fig:block-cut-tree}.
 
 \end{enumerate}
 
