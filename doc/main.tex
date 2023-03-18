@@ -7,6 +7,9 @@
 
 \usepackage{pdflscape}
 
+\usepackage{biblatex}
+\addbibresource{main.bib}
+
 \title{Discrete Math II, HW I}
 \date{March, 2023}
 \author{Aminev Timur, M3104}
@@ -238,6 +241,12 @@ R^2 (\sin\lambda_2 - \sin\lambda_1)^2 &= 2 R^2 (1 - \cos\alpha) \\
 l = R\alpha = R\arccos(\cos\lambda_1\cos\lambda_2\cos\delta\varphi + \sin\lambda_1\sin\lambda_2)
 \end{align*}
 
+Calculation of distances can be found
+\href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/100644/auto/mygraph/distances.py}{here}.
+
+In order to build MST I use Prim's algorithm \cite{algoprim} (\href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/5337ff8/auto/mst.py}{script}).
+
+The \textbf{answer} is \(14994452.24596812\) m.
 
 \end{enumerate}
 
@@ -298,4 +307,7 @@ l = R\alpha = R\arccos(\cos\lambda_1\cos\lambda_2\cos\delta\varphi + \sin\lambda
 \caption{Minimum edge cover}\label{fig:edge_cover_map}
 \end{figure}
 \end{landscape}
+
+\printbibliography
+
 \end{document}
