@@ -38,7 +38,11 @@ def vertex_cover_solver(g: Graph, comp: Subgraph):
     for v in comp.indices:
         for u in g.adj_nodes(v):
             idx = _find_edge(comp, u, v)
-            s.add(z3.Or(covered[idx] == in_set[indices_map[u]], covered[idx] == in_set[indices_map[v]]))
+            s.add(z3.Implies(in_set[indices_map[u]], covered[idx]))
+            s.add(z3.Implies(in_set[indices_map[v]], covered[idx]))
+
+    for i, (u, v) in enumerate(edges):
+        s.add(z3.Implies(covered[i], z3.Or(in_set[indices_map[u]], in_set[indices_map[v]])))
 
     s.minimize(min_vertex_cover_len)
     return s, in_set, min_vertex_cover_len
@@ -58,7 +62,7 @@ def main():
     m = s.model()
     print(f"--- Minimum vertex cover size = {m[size].as_long()} ---")
     in_set = [z3.is_true(m[i]) for i in in_set]
-    for i, b in zip(mcc.indices, in_set):
+    for i, b in sorted(zip(mcc.indices, in_set)):
         cc = ccs.to_country_code[g.vertices[i]]
         sign = '+' if b else '-'
         print(f"{sign} {cc}")
