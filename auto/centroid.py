@@ -57,7 +57,6 @@ def main():
     g = load_graph(vertices_fp=VERTICES_PATH, edges_fp=EDGES_PATH)
     mcc = max(g.connected_components, key=lambda x: len(x.indices))
     distances = load_distances(COUNTRIES_INFO_PATH, EDGES_PATH)
-    print(distances['Russia'])
     index_based_distances = _get_index_based_distances(g, distances)
     mst, mst_distances = _find_mst(mcc, index_based_distances)
     weights = {x: find_maximum_subtree_weight(mst, x, mst_distances) for x in mst.indices}
