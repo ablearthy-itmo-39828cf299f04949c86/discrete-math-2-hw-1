@@ -1,0 +1,34 @@
+['DEU--DNK', 'ESP--PRT', 'ITA--VAT', 'ITA--SMR', 'FRA--MCO', 'IRL--GBR']
+----------
+len(block) = 1
+block = PRT
+----------
+len(block) = 1
+block = SMR
+----------
+len(block) = 1
+block = VAT
+----------
+len(block) = 1
+block = MCO
+----------
+len(block) = 1
+block = DNK
+----------
+len(block) = 39
+block = ARM,ALB,AND,AUT,BLR,BEL,BIH,BGR,HRV,CZE,EST,FIN,FRA,DEU,GEO,GRC,HUN,ITA,ROK,LVA,LIE,LTU,LUX,MDA,MNE,NLD,MKD,NOR,POL,ROU,RUS,SRB,SVK,SVN,ESP,SWE,CHE,TUR,UKR
+----------
+len(block) = 1
+block = CYP
+----------
+len(block) = 1
+block = ISL
+----------
+len(block) = 1
+block = GBR
+----------
+len(block) = 1
+block = IRL
+----------
+len(block) = 1
+block = MLT
