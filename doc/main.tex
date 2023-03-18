@@ -89,7 +89,28 @@ script}.
 \[|F| = 24\]
 Edges included in edge cover are shown in \cref{fig:edge_cover_map}.
 
+\item \textbf{Find the shortest closed walk \(W\) that visits every vertex of
+\(\EGraphL\)}.
 
+The shorted closed walk is at least of length \(|V| = 44\).
+Since there's only one way from \texttt{ESP} to \texttt{ESP}, then in the closed walk
+we should visit \texttt{ESP} at least twice. The same goes for \texttt{DEU}.
+Therefore, the walk length is at least 46.
+In addition to it, we should visit \texttt{FRA} at least three times (that's because
+the walk should contain \texttt{MCO} and \texttt{PRT}).
+Therefore, the walk length is at least 48.
+We should visit \texttt{ITA} at least three times too, because it's connected with \texttt{SMR} and \texttt{VAT}.
+Therefore, the walk length is at least 50.
+We should visit \texttt{RUS} at least twice, because it's a cut vertex.
+Therefore, the walk length is at least 51.
+
+Let's use \textit{\textrussian{метод пристального взгляда}}.
+In fact, there's a closed walk of length 51. Therefore, \(|W| = 51\).
+
+\texttt{PRT}--\texttt{ESP}--\texttt{FRA}--\texttt{LUX}--\texttt{BEL}--\texttt{NLD}--\texttt{DEU}--\texttt{DNK}--\texttt{DEU}--\texttt{CZE}--\texttt{POL}--\texttt{SVK}--\texttt{HUN}--\texttt{ROU}--\texttt{MDA}--\texttt{UKR}--\texttt{BLR}--\texttt{LTU}--\texttt{LVA}--\texttt{EST}--\texttt{RUS}--\texttt{NOR}--\texttt{SWE}--\texttt{FIN}--\texttt{RUS}--\texttt{GEO}--\texttt{ARM}--\texttt{TUR}--\texttt{BGR}--\texttt{MKD}--\texttt{GRC}--\texttt{ALB}--\texttt{MNE}--\texttt{ROK}--\texttt{SRB}--\texttt{BIH}--\texttt{HRV}--\texttt{SVN}--\texttt{AUT}--\texttt{LIE}--\texttt{CHE}--\texttt{ITA}--\texttt{SMR}--\texttt{ITA}--\texttt{VAT}--\texttt{ITA}--\texttt{FRA}--\texttt{MCO}--\texttt{FRA}--\texttt{AND}--\texttt{ESP}--\texttt{PRT}
+
+Validness of the closed walk can be checked by \href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/2be1a5d/auto/validate_closed_walk.py}{the script}.
+Raw data can be obtained from \href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/fc8406d/data/vertex_closed_walk.txt}{here}.
 
 
 \end{enumerate}
