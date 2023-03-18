@@ -20,6 +20,9 @@
 
 \usepackage{enumitem}
 
+\usepackage{microtype}
+\usepackage{polyglossia}
+
 \newcounter{problemctr}
 \newcommand{\problem}{\refstepcounter{problemctr} \paragraph{Problem \# \theproblemctr.}}
 
@@ -29,3 +32,10 @@
 \DeclareMathOperator{\rad}{rad}
 \DeclareMathOperator{\diam}{diam}
 \DeclareMathOperator{\mycenter}{center}
+
+\setotherlanguage{russian}
+
+\newfontfamily{\cyrillicfont}{Times New Roman} 
+\newfontfamily{\cyrillicfontrm}{Times New Roman}
+\newfontfamily{\cyrillicfonttt}{Courier New}
+\newfontfamily{\cyrillicfontsf}{Arial}
