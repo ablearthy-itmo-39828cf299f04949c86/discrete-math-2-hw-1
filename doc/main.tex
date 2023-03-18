@@ -202,6 +202,43 @@ obtained by
 \item \texttt{MLT}
 \end{enumerate}
 
+\item Let's define weight function \(w : E \to \mathbb{R}\).
+
+How to calculate distance between two points on the Earth with given coordinates \(\lambda_1, \varphi_1\) and \(\lambda_2, \varphi_2\)?
+
+Let's assume \(R = 6371000\) m. Then
+\begin{align*}
+x_1 &= R\cos\lambda_1\sin\varphi_1 \\
+y_1 &= R\cos\lambda_1\cos\varphi_1 \\
+z_1 &= R\sin\lambda_1 \\
+x_2 &= R\cos\lambda_2\sin\varphi_2 \\
+y_2 &= R\cos\lambda_2\cos\varphi_2 \\
+z_2 &= R\sin\lambda_2
+\end{align*}
+
+Then,
+\[(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 = 2 R^2 (1 - \cos\alpha)\]
+\[l = 2 \pi R \frac{\alpha}{2 \pi} = R \alpha\]
+\begin{align*}
+R^2 (\cos\lambda_2\sin\varphi_2 - \cos\lambda_1\sin\varphi_1)^2 &+ \\
+R^2 (\cos\lambda_2\cos\varphi_2 - \cos\lambda_1\cos\varphi_1)^2 &+ \\
+R^2 (\sin\lambda_2 - \sin\lambda_1)^2 &= 2 R^2 (1 - \cos\alpha) \\
+(\cos\lambda_2\sin\varphi_2 - \cos\lambda_1\sin\varphi_1)^2 &+ \\
+(\cos\lambda_2\cos\varphi_2 - \cos\lambda_1\cos\varphi_1)^2 &+ \\
+(\sin\lambda_2 - \sin\lambda_1)^2 &= 2 (1 - \cos\alpha)
+\end{align*}
+\begin{align*}
+\cos^2\lambda_2\sin^2\varphi_2 - 2\cos\lambda_2\cos\lambda_1\sin\varphi_2\sin\varphi_1 + \cos^2\lambda_1\sin^2\varphi_1 &+ \\
+\cos^2\lambda_2\cos^2\varphi_2 - 2\cos\lambda_2\cos\lambda_1\cos\varphi_2\cos\varphi_1 + \cos^2\lambda_1\cos^2\varphi_1 &+ \\
+\sin^2\lambda_2 - 2\sin\lambda_2\sin\lambda_1 + \sin^2\lambda_1 &= 2 (1 - \cos\alpha) \\
+2 (1 - \cos\lambda_1\cos\lambda_2\cos\delta\varphi + \sin\lambda_1\sin\lambda_2) &= 2 (1 - \cos\alpha)
+\end{align*}
+\begin{align*}
+\alpha = \arccos(\cos\lambda_1\cos\lambda_2\cos\delta\varphi + \sin\lambda_1\sin\lambda_2) \\
+l = R\alpha = R\arccos(\cos\lambda_1\cos\lambda_2\cos\delta\varphi + \sin\lambda_1\sin\lambda_2)
+\end{align*}
+
+
 \end{enumerate}
 
 
