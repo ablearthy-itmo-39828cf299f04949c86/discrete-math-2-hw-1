@@ -1,0 +1,155 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[
+countrynode/.style={circle, draw=green!60, fill=green!5, very thick},
+myline/.style={ultra thin},
+]
+\node[countrynode] (ARM) at (37.5, 40.166666666666664) {ARM};
+\node[countrynode] (ALB) at (19.816666666666666, 38.31666666666667) {ALB};
+\node[countrynode] (AND) at (1.5, 42.5) {AND};
+\node[countrynode] (AUT) at (16.366666666666667, 48.2) {AUT};
+\node[countrynode] (BLR) at (30.566666666666666, 51.9) {BLR};
+\node[countrynode] (BEL) at (4.35, 50.833333333333336) {BEL};
+\node[countrynode] (BIH) at (18.4, 42.85) {BIH};
+\node[countrynode] (BGR) at (25.333333333333332, 42.7) {BGR};
+\node[countrynode] (HRV) at (15.983333333333333, 43.81666666666667) {HRV};
+\node[countrynode] (CYP) at (33.35, 35.166666666666664) {CYP};
+\node[countrynode] (CZE) at (16.416666666666666, 51.083333333333336) {CZE};
+\node[countrynode] (DNK) at (12.566666666666666, 55.666666666666664) {DNK};
+\node[countrynode] (EST) at (30.333333333333334, 59.0333333333333) {EST};
+\node[countrynode] (FIN) at (24.933333333333334, 62.166666666666664) {FIN};
+\node[countrynode] (FRA) at (2.35, 45.85) {FRA};
+\node[countrynode] (DEU) at (13.4, 52.516666666666666) {DEU};
+\node[countrynode] (GEO) at (37.78333333333333, 41.71666666666667) {GEO};
+\node[countrynode] (GRC) at (23.716666666666665, 37.983333333333334) {GRC};
+\node[countrynode] (HUN) at (21.05, 46.483333333333334) {HUN};
+\node[countrynode] (ISL) at (-6.933333333333334, 64.13333333333334) {ISL};
+\node[countrynode] (IRL) at (-6.25, 53.35) {IRL};
+\node[countrynode] (ITA) at (12.466666666666667, 41.88333333333333) {ITA};
+\node[countrynode] (ROK) at (21.15, 42.65) {ROK};
+\node[countrynode] (LVA) at (29.6, 55.93333333333333) {LVA};
+\node[countrynode] (LIE) at (9.516666666666667, 47.13333333333333) {LIE};
+\node[countrynode] (LTU) at (25.266666666666666, 54.68333333333333) {LTU};
+\node[countrynode] (LUX) at (6.116666666666666, 49.6) {LUX};
+\node[countrynode] (MLT) at (14.5, 35.88333333333333) {MLT};
+\node[countrynode] (MDA) at (28.833333333333332, 43.016666666666666) {MDA};
+\node[countrynode] (MCO) at (7.416666666666667, 40.71666666666667) {MCO};
+\node[countrynode] (MNE) at (19.25, 40.43333333333333) {MNE};
+\node[countrynode] (NLD) at (4.883333333333333, 52.36666666666667) {NLD};
+\node[countrynode] (MKD) at (23.416666666666668, 41.983333333333334) {MKD};
+\node[countrynode] (NOR) at (10.733333333333333, 59.9) {NOR};
+\node[countrynode] (POL) at (21.0, 52.21666666666667) {POL};
+\node[countrynode] (PRT) at (-6.15, 38.71666666666667) {PRT};
+\node[countrynode] (ROU) at (26.1, 44.416666666666664) {ROU};
+\node[countrynode] (RUS) at (34.61666666666667, 65.75) {RUS};
+\node[countrynode] (SMR) at (12.433333333333334, 43.93333333333333) {SMR};
+\node[countrynode] (SRB) at (20.45, 44.81666666666667) {SRB};
+\node[countrynode] (SVK) at (19.1, 48.13333333333333) {SVK};
+\node[countrynode] (SVN) at (16.0, 45.55) {SVN};
+\node[countrynode] (ESP) at (-3.7, 40.416666666666664) {ESP};
+\node[countrynode] (SWE) at (18.066666666666666, 59.31666666666667) {SWE};
+\node[countrynode] (CHE) at (7.433333333333334, 47.93333333333333) {CHE};
+\node[countrynode] (TUR) at (32.85, 39.916666666666664) {TUR};
+\node[countrynode] (UKR) at (32.516666666666666, 48.45) {UKR};
+\node[countrynode] (GBR) at (-0.11666666666666667, 51.5) {GBR};
+\node[countrynode] (VAT) at (12.45, 39.9) {VAT};
+
+\draw[myline,color=red] (LVA)--(BLR);
+\draw[myline,color=red] (LTU)--(LVA);
+\draw[myline,color=green] (CZE)--(POL);
+\draw[myline,color=red] (PRT)--(ESP);
+\draw[myline,color=red] (ROU)--(BGR);
+\draw[myline,color=green] (ESP)--(AND);
+\draw[myline,color=red] (POL)--(RUS);
+\draw[myline,color=green] (HRV)--(HUN);
+\draw[myline,color=red] (AUT)--(SVK);
+\draw[myline,color=red] (LUX)--(BEL);
+\draw[myline,color=red] (LUX)--(FRA);
+\draw[myline,color=red] (ROU)--(UKR);
+\draw[myline,color=red] (HRV)--(SRB);
+\draw[myline,color=red] (MNE)--(SRB);
+\draw[myline,color=green] (LIE)--(CHE);
+\draw[myline,color=red] (SVK)--(POL);
+\draw[myline,color=red] (AUT)--(DEU);
+\draw[myline,color=red] (FRA)--(DEU);
+\draw[myline,color=red] (SVN)--(HRV);
+\draw[myline,color=red] (UKR)--(BLR);
+\draw[myline,color=red] (NOR)--(FIN);
+\draw[myline,color=green] (ALB)--(GRC);
+\draw[myline,color=red] (FIN)--(RUS);
+\draw[myline,color=red] (UKR)--(POL);
+\draw[myline,color=red] (NLD)--(DEU);
+\draw[myline,color=red] (GRC)--(BGR);
+\draw[myline,color=red] (MKD)--(BGR);
+\draw[myline,color=red] (ROK)--(SRB);
+\draw[myline,color=red] (ITA)--(SVN);
+\draw[myline,color=red] (LIE)--(AUT);
+\draw[myline,color=red] (CHE)--(DEU);
+\draw[myline,color=red] (MDA)--(UKR);
+\draw[myline,color=green] (TUR)--(GEO);
+\draw[myline,color=red] (AUT)--(CZE);
+\draw[myline,color=red] (POL)--(LTU);
+\draw[myline,color=green] (MNE)--(BIH);
+\draw[myline,color=green] (SVN)--(AUT);
+\draw[myline,color=green] (ROK)--(MKD);
+\draw[myline,color=green] (LTU)--(BLR);
+\draw[myline,color=red] (TUR)--(ARM);
+\draw[myline,color=red] (SRB)--(MKD);
+\draw[myline,color=red] (HUN)--(UKR);
+\draw[myline,color=green] (SRB)--(BGR);
+\draw[myline,color=green] (NOR)--(RUS);
+\draw[myline,color=red] (ALB)--(MKD);
+\draw[myline,color=red] (FRA)--(BEL);
+\draw[myline,color=red] (DEU)--(POL);
+\draw[myline,color=red] (RUS)--(GEO);
+\draw[myline,color=red] (HUN)--(SRB);
+\draw[myline,color=red] (CHE)--(AUT);
+\draw[myline,color=green] (SWE)--(FIN);
+\draw[myline,color=red] (MNE)--(ROK);
+\draw[myline,color=green] (NLD)--(BEL);
+\draw[myline,color=red] (POL)--(BLR);
+\draw[myline,color=red] (VAT)--(ITA);
+\draw[myline,color=red] (HRV)--(BIH);
+\draw[myline,color=red] (EST)--(RUS);
+\draw[myline,color=red] (LVA)--(RUS);
+\draw[myline,color=red] (SVN)--(HUN);
+\draw[myline,color=red] (CHE)--(FRA);
+\draw[myline,color=green] (MDA)--(ROU);
+\draw[myline,color=red] (GRC)--(TUR);
+\draw[myline,color=red] (SVK)--(CZE);
+\draw[myline,color=green] (LVA)--(EST);
+\draw[myline,color=red] (AUT)--(HUN);
+\draw[myline,color=red] (MNE)--(HRV);
+\draw[myline,color=red] (GEO)--(ARM);
+\draw[myline,color=red] (UKR)--(RUS);
+\draw[myline,color=red] (HUN)--(ROU);
+\draw[myline,color=red] (MNE)--(ALB);
+\draw[myline,color=red] (BGR)--(TUR);
+\draw[myline,color=red] (DNK)--(DEU);
+\draw[myline,color=green] (LUX)--(DEU);
+\draw[myline,color=green] (MCO)--(FRA);
+\draw[myline,color=red] (BIH)--(SRB);
+\draw[myline,color=red] (SRB)--(ROU);
+\draw[myline,color=red] (ESP)--(FRA);
+\draw[myline,color=red] (AND)--(FRA);
+\draw[myline,color=red] (ROK)--(ALB);
+\draw[myline,color=red] (ITA)--(AUT);
+\draw[myline,color=red] (SWE)--(NOR);
+\draw[myline,color=red] (LTU)--(RUS);
+\draw[myline,color=red] (HUN)--(SVK);
+\draw[myline,color=red] (BEL)--(DEU);
+\draw[myline,color=green] (SVK)--(UKR);
+\draw[myline,color=red] (MKD)--(GRC);
+\draw[myline,color=red] (DEU)--(CZE);
+\draw[myline,color=green] (SMR)--(ITA);
+\draw[myline,color=red] (ITA)--(FRA);
+\draw[myline,color=red] (ITA)--(CHE);
+\draw[myline,color=red] (BLR)--(RUS);
+
+\draw[myline] (GBR) -- (IRL);
+
+\end{tikzpicture}
+\end{document}
