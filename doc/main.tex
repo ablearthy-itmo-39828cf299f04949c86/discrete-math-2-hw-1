@@ -248,6 +248,21 @@ In order to build MST I use Prim's algorithm \cite{algoprim} (\href{https://gith
 
 The \textbf{answer} is \(14994452.24596812\) m.
 
+\item \textbf{Find \(\centroid(T)\)}.
+Calculate maximum weight of subtree for each vertex and then find minimum
+(\href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/53131e2/auto/centroid.py}{script}).
+
+The \textbf{answer} is \textbf{MKD}.
+
+\item \textbf{Construct the Pr\"ufer code for \(T\)}.
+
+The tree is labeled with country code (three letters). Labels are compared lexicographically.
+On each iteration remove the lowest leaf from tree, and write its neighbour label.
+My
+\href{https://github.com/ablearthy-itmo-39828cf299f04949c86/discrete-math-2-hw-1/blob/b4044c9/auto/prufer_code.py}{implementation}
+is inefficient, however, for know, it's enough.
+
+\texttt{DEU} \texttt{CZE} \texttt{AUT} \texttt{LVA} \texttt{ARM} \texttt{TUR} \texttt{SVK} \texttt{BEL} \texttt{LTU} \texttt{FRA} \texttt{BEL} \texttt{FRA} \texttt{SWE} \texttt{LTU} \texttt{BLR} \texttt{ESP} \texttt{AND} \texttt{FRA} \texttt{CHE} \texttt{LIE} \texttt{AUT} \texttt{MKD} \texttt{ITA} \texttt{BIH} \texttt{AUT} \texttt{SVN} \texttt{FIN} \texttt{RUS} \texttt{BLR} \texttt{UKR} \texttt{GRC} \texttt{MKD} \texttt{MDA} \texttt{ROU} \texttt{BGR} \texttt{MKD} \texttt{ALB} \texttt{MNE} \texttt{BIH} \texttt{HRV} \texttt{SVN} \texttt{ITA}
 \end{enumerate}
 
 
