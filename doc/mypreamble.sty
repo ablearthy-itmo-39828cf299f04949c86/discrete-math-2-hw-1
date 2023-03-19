@@ -9,6 +9,8 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
+
 \usepackage{xltxtra}
 
 \usepackage{tikz}
@@ -34,9 +36,16 @@
 \DeclareMathOperator{\mycenter}{center}
 \DeclareMathOperator{\centroid}{centroid}
 
+\DeclareMathOperator{\dist}{dist}
+
 \setotherlanguage{russian}
 
 \newfontfamily{\cyrillicfont}{Times New Roman} 
 \newfontfamily{\cyrillicfontrm}{Times New Roman}
 \newfontfamily{\cyrillicfonttt}{Courier New}
 \newfontfamily{\cyrillicfontsf}{Arial}
+
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
