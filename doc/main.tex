@@ -267,6 +267,56 @@ is inefficient, however, for know, it's enough.
 \texttt{DEU} \texttt{CZE} \texttt{AUT} \texttt{LVA} \texttt{ARM} \texttt{TUR} \texttt{SVK} \texttt{BEL} \texttt{LTU} \texttt{FRA} \texttt{BEL} \texttt{FRA} \texttt{SWE} \texttt{LTU} \texttt{BLR} \texttt{ESP} \texttt{AND} \texttt{FRA} \texttt{CHE} \texttt{LIE} \texttt{AUT} \texttt{MKD} \texttt{ITA} \texttt{BIH} \texttt{AUT} \texttt{SVN} \texttt{FIN} \texttt{RUS} \texttt{BLR} \texttt{UKR} \texttt{GRC} \texttt{MKD} \texttt{MDA} \texttt{ROU} \texttt{BGR} \texttt{MKD} \texttt{ALB} \texttt{MNE} \texttt{BIH} \texttt{HRV} \texttt{SVN} \texttt{ITA}
 \end{enumerate}
 
+\problem Prove
+
+\begin{theorem}[Triangle Inequality]
+For any connected graph \(G = \langle V, E \rangle\):
+\[\forall x,y,z \in V : \dist(x, y) + \dist(y, z) \ge \dist(x, z)\]
+\end{theorem}
+
+\begin{proof}
+Assume it's wrong.
+\[\exists x,y,z \in V : \dist(x, y) + \dist(y, z) < \dist(x, z)\]
+Since \(\dist(x, z)\) is the shortest path, then, according to the assumption,
+the shortest path is the path that visits \(y\), so \(\dist(x, z) = \dist(x, y) + \dist(y, z)\).
+However, it contradicts our assumption. Therefore,
+\[\forall x,y,z \in V : \dist(x, y) + \dist(y, z) \ge \dist(x, z)\]
+is true.
+\end{proof}
+
+\begin{theorem}[Tree]
+A connected graph \(G = \langle V, E \rangle\) is a tree \textit{iff} \(|E| = |V| - 1\)
+\end{theorem}
+
+\begin{proof}
+Assume \(G\) is a tree. Let's proof that it implies \(|E| = |V| - 1\) by
+induction. Base case: \(|V| = 1\), no edges, therefore \(0 = 1 - 1 = 0\). Step:
+\(|E| = |V| - 1\). Now add one more vertex. We can add only one edge, otherwise
+\(G\) is either a forest or a graph that contains cycle (since at least two
+vertices are connected with a new one, it's possible to find a closed walk). So
+\(|E| + 1 = |V| - 1 + 1\), therefore \(|E| = |V| - 1\).
+
+Let's prove the following statement: if \(G\) has cycle or more than one
+  connected component, then either \(|E| > |V| - 1\) or \(|E| < |V| - 1\).
+The \(|E| < |V| - 1\) case is possible if there are more than one connected components.
+Now let's talk about \(|E| > |V| - 1\) case. Since we're working with discrete values, then \(|E| > |V| - 1 \iff |E| \ge |V|\).
+Let's focus on the cycle. It's obvious that in the cycle the following is true \(|E| \ge |V|\).
+Adding a vertex that is in another connected component will increase \(|V|\), so \(|E| \ge |V| + 1\) (forest).
+Otherwise adding a vertex will increase both \(|E|\) and \(|V|\), so \(|E| + m \ge |V| + 1 \implies |E| \ge |V|\).
+
+By contraposition, if \(|E| = |V| - 1\), then \(G\) has no cycles and has only one connected component (i.e. it's a tree).
+\end{proof}
+
+\begin{theorem}[Hall]
+For any bipartite graph \(G = (X, Y, E)\), there exists \(X\)-perfect matching
+\textit{iff} \(|N(W)| \ge |W|\) for every \(W \subseteq X\).
+\end{theorem}
+
+\begin{proof}
+Let \(M\) be a \(X\)-perfect matching.
+The "only if" part: For every \(x \in W\) there's \(y \in Y\) such that \(xy \in M\).
+Therefore, the amount of number is at least \(|W|\).
+\end{proof}
 
 
 \begin{landscape}
