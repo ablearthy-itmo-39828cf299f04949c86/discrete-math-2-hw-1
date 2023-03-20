@@ -316,6 +316,24 @@ For any bipartite graph \(G = (X, Y, E)\), there exists \(X\)-perfect matching
 Let \(M\) be a \(X\)-perfect matching.
 The "only if" part: For every \(x \in W\) there's \(y \in Y\) such that \(xy \in M\).
 Therefore, the amount of number is at least \(|W|\).
+
+The "if" part. Let's prove contraposition.
+Assume there's no \(X\)-perfect matching.
+Therefore, for each matching \(M : |M| < |X|\).
+Let \(U\) be a minimum vertex cover and \(U_x = U \cap X\), \(U_y = U \cap Y\).
+According to K\"onig's theorem, the number of edges in maximal matching equals
+the number of vertices in minimum vertex cover.
+Therefore, \(|U| = |M| < |X|\). Therefore, \(|U_x| + |U_y| = |U| < |X|\).
+
+Let \(W = X \setminus U_x\). \(|W| = |X| - |U_x|\).
+The neighbours of \(W\) are elements from \(U_y\).
+Otherwise \(U\) is not minimum vertex cover:
+if \(\exists y \in Y : y \not\in U_y \land y \in N(W)\),
+then there's uncovered edge, therefore \(U\) is not vertex cover, contradiction.
+Therefore, \(N(W) = U_y\), therefore \(|N(W)| = |U_y| = |U| - |U_x|\).
+\[|N(w)| = |U_y| < |X| - |U_x| = |W|\]
+Therefore, \(|N(w)| < |W|\). Contraposition is proved, therefore
+the original statement is proved too.
 \end{proof}
 
 
