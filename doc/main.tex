@@ -50,7 +50,7 @@ each vertex (using BFS)
 \texttt{Girth} equals 3 --- \(\{\texttt{CHE}, \texttt{AUT}, \texttt{LIE}\}\)
 
 Vertex and edges connectivity are obtained from the following observation:
-\texttt{DNK} is conneced only with \texttt{DEU}, therefore
+\texttt{DNK} is connected only with \texttt{DEU}, therefore
 \[\varkappa(\EGraphL) = \lambda(\EGraphL) = 1\]
 
 \item \textbf{Minimum vertex coloring}. Due to \textit{four color theorem},
@@ -121,7 +121,15 @@ Raw data can be obtained from \href{https://github.com/ablearthy-itmo-39828cf299
 
 \item \textbf{Find the shortest closed walk \(U\) that visits every edge of
 \(\EGraphL\)}.
-%TODO
+It's similar to Chinese postman problem.
+
+Let \(T \subset V\), \(J \subset E\).
+
+\(J\) is \(T\)-join if
+\(\{\forall v \in V \mid |\{ e \in J \mid e \texttt{I} v\}| \equiv 1 \texttt{(mod 2)}\}\)
+equals \(T\).
+In order to find \(U\), we should find minimal \(T\)-join where \(T\) is a set of all
+odd-degree vertices.
 
 \item \textbf{Find all biconnected components (blocks) and draw the block-cut tree of \(\EGraph\)}.
 To find cut-vertices and blocks we can use algorithm that uses DFS and stores
@@ -334,6 +342,68 @@ Therefore, \(N(W) = U_y\), therefore \(|N(W)| = |U_y| = |U| - |U_x|\).
 \[|N(w)| = |U_y| < |X| - |U_x| = |W|\]
 Therefore, \(|N(w)| < |W|\). Contraposition is proved, therefore
 the original statement is proved too.
+\end{proof}
+
+\begin{theorem}[Whitney]
+For any graph \(G\): \(\varkappa(G) \le \lambda(G) \le \delta(G)\)
+\end{theorem}
+
+\begin{proof}
+The \(\varkappa(G) \le \lambda(G)\) part:
+assume \(\varkappa(G) > \lambda(G)\).
+However, let \(P\) be a set of edges removal of which makes \(G\) disconnected.
+Therefore, \(|P| = \lambda(G)\).
+In the worst case we can remove \(|P|\) vertices that are incident with edges
+from \(P\). So, in the worst case \(\varkappa(G) = \lambda(G)\).
+However, it's possible to remove less than \(\lambda(G)\) vertices, therefore
+\(\varkappa(G) > \lambda(G)\) is wrong.
+
+The \(\lambda(G) \le \delta(G)\) part:
+assume \(\lambda(G) > \delta(G)\).
+However, removal of all edges that are incident to a vertex with degree
+\(\delta(G)\) makes \(G\) disconnected,
+therefore at least \(\lambda(G) = \delta(G)\)
+(also \(\lambda(G)\) can be less than \(\delta(G)\)).
+Contradiction. The assumption was wrong, so \(\lambda(G) \le \delta(G)\) holds.
+\end{proof}
+
+\begin{theorem}[Chartrand]
+For a connected graph \(G = \langle V, E \rangle\)
+\[\delta(G) \ge \lfloor \frac{|V|}{2} \rfloor \implies \lambda(G) = \delta(G)\]
+\end{theorem}
+
+\begin{proof}
+According to a previous theorem \(\lambda(G) \le \delta(G)\).
+We can show that \(\lambda(G) < \delta(G)\) doesn't hold.
+
+Removal of \(\lambda(G)\) edges makes it disconnected, so we can divide
+vertices into two sets \(A\) and \(V \setminus A\) that can be connected via
+\(\lambda(G)\) edges.
+
+Let \(P\) be a minimum set of edges that can be removed to make \(G\) disconnected.
+\(|P| = \lambda(G)\)
+
+Assume \(m\) vertices from \(A\) are incident to edges from \(P\).
+Obviously, \(m \le \lambda(G)\).
+If \(|A| = m\), then
+The number of edges in \(G\) incident with two vertices of \(A\) is at least
+\(\frac12 (m \delta(G) - \lambda(G))\) (from each \(m\) vertex there's at least
+\(\delta(G)\) edges minus whose, that connect \(A\) with \(V \setminus A\);
+since we encountered each edge twice, divide it by 2).
+\textit{\textrussian{Заметим, что}}
+\(\frac12 (m \delta(G) - \lambda(G)) > \frac12 m (m - 1) = C_{2}^{m}\).
+Contradiction, since maximum number of edges is \(C_{2}^{m}\).
+
+If \(|V \setminus A| = m\), then just "swap" \(A\) and \(V \setminus A\).
+
+If \(A\) and \(V \setminus A\) contain vertices adjacent only to vertices in their own subsets, then each subset should contain at least \(\delta(G) + 1\) vertices (to maintain \(\delta(G) \ge \lfloor \frac{|V|}{2}\rfloor\)).
+Since \(\delta(G) + 1 \ge \lfloor \frac{|V|}{2} \rfloor + 1\),
+then \(2 (\delta(G) + 1) \ge 2 \lfloor \frac{|V|}{2} \rfloor + 2\).
+If \(|V|\) is even, then \(2 (\delta(G) + 1) \ge |V| + 2\), contradiction.
+IF \(|V|\) is odd, then \(2 (\delta(G) + 1) \ge |V| - 1 + 2 = |V| + 1\), contradiction.
+
+So, assumption \(\lambda(G) < \delta(G)\) is wrong, therefore, \(\lambda(G) =
+\delta(G)\).
 \end{proof}
 
 
